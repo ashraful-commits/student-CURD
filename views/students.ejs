@@ -1,0 +1,53 @@
+<div style="background-image: url(); background-repeat: no-repeat; background-size: cover; background-blend-mode:multiply;opacity: 0.5; height:900px;"
+    class="container w-11/12  m-auto bg-green-200">
+    <div class="row w-10/12 m-auto h-auto  bg-green-400">
+        <div class="menu w-full h-16 flex justify-between items-center border-b-4 border-b-purple-900 bg-white">
+            <div class="logo w-2/12">
+                <img class="w-16 h-16 p-2" src="./images/logo.png" alt="">
+            </div>
+            <div class="munu-li w-5/12 h-full pt-3">
+                <ul class="flex justify-evenly  ">
+                    <li class="bg-purple-800 text-white mx-1 py-1 px-1  font-bold w-24 text-center h-full hover:transition hover:bg-white hover:font-bold hover:text-purple-900"><a href="/"><i class="fas fa-school inline"></i> School</a></li>
+                    <li class="bg-purple-800 text-white  mx-1 py-1 px-1  font-bold w-24 text-center h-full hover:transition hover:bg-white hover:font-bold hover:text-purple-900"><a href="/students"><i class="fas fa-user inline"></i> Student</a></li>
+                    <li class="bg-purple-800 text-white  mx-1 py-1 px-1  font-bold w-24 text-center h-full hover:transition hover:bg-white hover:font-bold hover:text-purple-900"><a href="/class"><i class="fa-solid fa-door-open"></i> Class</a></li>
+                    <li class="bg-purple-800 text-white  mx-1 py-1 px-1  font-bold w-24 text-center h-full hover:transition hover:bg-white hover:font-bold hover:text-purple-900"><a href="/contact"><i class="fa-solid fa-id-badge"></i> Contact</a></li>
+                </ul>
+            </div>
+            <div class="search_bar">
+                <form action="" class="px-3 w-5/12 flex justify-start items-center">
+                    <i class="fas fa-search bg-purple-700 py-2 px-3 text-white"></i>
+                    <input type="search" name="" class=" border-4 border-purple-900 focus:outline-none" value="">
+                </form>
+            </div>
+        </div>
+        <!------------------------------------------------- student section -->
+        <div class="student w-full p-5 h-auto flex flex-wrap justify-center ">
+            <div class="title text-center h-10 w-full bg-purple-800 flex justify-between px-4 items-center">
+                <a href="/students/Studentform" class=" text-purple-900 inline-block px-3 bg-white py-2">ADD NEW STUDENT</a>
+                <h1 class="text-white">ALL STUDENTS</h1>
+            </div>
+           <% studentdata.forEach(element => { %>
+            <div class="w-3/12 m-1 h-auto mt-3 bg-purple-900 shadow-md border-2 border-white ">
+                <div class=" overflow-hidden flex flex-col">
+                    <div class="flex justify-between px-2 py-1 border-b-4 border-b-white">
+                        <a href="/students/update/<%= element.id%> "><i class="fas fa-edit text-white"></i></a>
+                        <span class="w-5 h-5 rounded-full bg-white"></span>
+                        <a href="/students/delete/<%= element.id %> "><i class="fas fa-trash text-white"></i></a>
+                    </div>
+                    <img class="bg-cover w-auto h-52" src="/images/<%= element.photo %> " alt="">
+                    <div class="border-t-4 h-auto py-2  border-t-white px-1">
+                        <h5 class="font-sm text-white uppercase block"><%= element.name %> </h5>
+                        <h6 class=" text-white font-thin block"><span class="font-bold">Class :</span> <%= element.class %> </h6>
+                        <h6 class=" text-white font-thin block"><span class="font-bold">Gender :</span> <%= element.gender %> </h6>
+                        <h6 class=" text-white font-thin block"><span class="font-bold">Cell :</span> <%= element.cell %> </h6>
+                        <h6 class=" text-white font-bold block"><%= element.email %> </h6>
+                        <h6 class=" text-white font-thin block"><span class="font-bold">Location :</span> <%= element.location %> </h6>
+                        
+                    </div>
+                </div>
+            </div>
+           <% }) %>
+   
+        </div>
+    </div>
+</div>
