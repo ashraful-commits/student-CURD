@@ -134,6 +134,7 @@ const editstudentProfile = async (req, res) => {
   const {
     first_name,
     last_name,
+    username,
     age,
     cell,
     email,
@@ -143,9 +144,52 @@ const editstudentProfile = async (req, res) => {
 
   const findId = await register.findByIdAndUpdate(
     { _id: req.params.id },
-    { first_name, last_name, age, cell, email, location, gender }
+    {
+      first_name,
+      last_name,
+      age,
+      cell,
+      email,
+      location,
+      gender,
+      username,
+    }
   );
-  validation('update successfull', '/students/edit', req, res);
+  delete req.session.user;
+  res.clearCookie('authToken');
+  validation('Profile updated', '/login', req, res);
+};
+//========================================change password
+const changePassword = (req, res) => {
+  res.render('password');
+};
+//========================================update password now
+const updatePassword = async (req, res) => {
+  const { password } = req.body;
+
+  const passwordupdate = await register.findByIdAndUpdate(
+    { _id: req.params.id },
+    { password: await makehash(password) }
+  );
+  delete req.session.user;
+  res.clearCookie('authToken');
+  validation('Password updated', '/login', req, res);
+};
+//================================================profile photo
+const profilePhoto = (req, res) => {
+  res.render('profilephoto');
+};
+//================================================update profile phtoto
+const changeProfilePhoto = async (req, res) => {
+  const { photo } = req.body;
+
+  const updatePhoto = await register.findByIdAndUpdate(
+    { _id: req.params.id },
+    { photo: req.file.filename }
+  );
+  delete req.session.user;
+  res.clearCookie('authToken');
+  validation('Profile Photo updated', '/login', req, res);
 };
 //============================exports
 module.exports = {
@@ -161,4 +205,8 @@ module.exports = {
   studentProfile,
   studentProfileEdit,
   editstudentProfile,
+  changePassword,
+  updatePassword,
+  profilePhoto,
+  changeProfilePhoto,
 };

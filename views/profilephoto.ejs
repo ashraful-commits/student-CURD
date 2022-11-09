@@ -10,7 +10,7 @@
            <div class="w-full flex">
             <!-- sidebar -->
             <div class="w-4/12 h-full bg-purple-500 mb-3 shadow-2xl border-2 border-white mt-5" >
-                <img src="/images/<%= user.photo %> " class="w-52 mt-3 cover no-reapet h-52 rounded-full m-auto border-4 border-white " alt="">
+                <img src="/images/<%= user.photo %> " class="w-52 mt-3  h-52 rounded-full m-auto border-4 border-white " alt="">
                 <ul class="mt-5">
                     <li class="my-2 bg-purple-800 text-white px-5 py-3 hover:bg-white hover:text-purple-900 transitions font-bold"><a href="/students/profile"> <i class="fas fa-user"></i> Profile</a></li>
                     <li class="my-2 bg-purple-800 text-white px-5 py-3 hover:bg-white hover:text-purple-900 transitions font-bold"><a href="/students/edit"> <i class="fas fa-edit"></i> Edit</a></li>
@@ -21,18 +21,29 @@
                 </ul>
             </div>
             <!-- body  -->
-            <div class="w-8/12 h-full bg-green-500 ml-3  border-2 border-white mt-5">
-                            
-                <img class="w-52 h-52 m-5 border-4 border-amber-500 rounded-xl" src="/images/<%= user.photo %> " alt="">
-                <ul class="pl-5 pr-5">
-                    <li class="w-full h-12 bg-white pt-2 pl-2 my-3"> <span class="font-bold bg-purple-900 text-white  h-8 inline-block px-3 mr-2">First Name: </span ><%= user.first_name %> <span class="bg-purple-900 text-white font-bold  h-8 inline-block px-3 mr-2">Last Name:</span> <%= user.last_name %>  </li>
-                    <li class="w-full h-12 bg-white pt-2 pl-2 my-3"><span class="font-bold bg-purple-900 text-white  h-8 inline-block px-3 mr-2">Username:</span> <%= user.username  %>  </li>
-                    <li class="w-full h-12 bg-white pt-2 pl-2 my-3"><span class="font-bold bg-purple-900 text-white  h-8 inline-block px-3 mr-2">Email:</span> <%= user.email %> </li>
-                    <li class="w-full h-12 bg-white pt-2 pl-2 my-3"><span class="font-bold bg-purple-900 text-white  h-8 inline-block px-3 mr-2">Mobile Number:</span> <%= user.cell  %>  </li>
-                    <li class="w-full h-12 bg-white pt-2 pl-2 my-3"><span class="font-bold bg-purple-900 text-white  h-8 inline-block px-3 mr-2">Age:</span> <%= user.age  %> Years old </li>
-                    <li class="w-full h-12 bg-white pt-2 pl-2 my-3"><span class="font-bold bg-purple-900 text-white  h-8 inline-block px-3 mr-2">Gender:</span> <%= user.gender  %>  </li>
-                    <li class="w-full h-12 bg-white pt-2 pl-2 my-3"><span class="font-bold bg-purple-900 text-white  h-8 inline-block px-3 mr-2">Location:</span> <%= user.location  %>  </li>
-                </ul>
+            <div class="w-8/12 h-full bg-green-500 ml-3 mt-5 border-2 border-white">
+                            <div class="bg-purple-900 w-full h-12 border-b-2 border-b-white text-center ">
+                                <h1 class="text-white font-bold pt-3">You can Change profile photo</h1>
+                            </div>
+                <form action="/students/profilephoto/<%= user._id %> " method="POST"  class="flex flex-col w-full bg-purple-500 " enctype="multipart/form-data" >
+                   <div class="bg-red-200 text-center">
+                    <% if (message) { %>
+                        <p class="w-full h-8 text-purple-900"><%= message %> </p>
+                    <% } %>
+                   </div>
+                    
+                    
+                    
+                    <div class="my-5 text-center w-full">
+                        <img src="" id="img" alt="">
+                        <input type="file" name="photo" class="w-full transition-all hover:border-2 hover:border-amber-300  focus:bg-amber-300 hover:scale-110 bg-white h-8 placeholder-pink-900 font-bold  pl-5 focus:border-none focus:outline-none" placeholder="update photo" id="update_photo">
+                    </div>
+                    
+                   
+                    <button class="w-full h-8   bg-pink-700 transition-all  hover:border-2 hover:border-amber-300 hover:scale-110 hover:shadow-3xl hover:shadow-white  text-lg text-white font-bold hover:text-pink-600  hover:bg-white mb-0"
+                    type="submit"  href="">Change photo</button>
+                    
+                </form>    
             
             </div>
            </div>

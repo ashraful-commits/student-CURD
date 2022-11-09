@@ -13,9 +13,9 @@
                 <img src="/images/<%= user.photo %> " class="w-52 mt-3  h-52 rounded-full m-auto border-4 border-white " alt="">
                 <ul class="mt-5">
                     <li class="my-2 bg-purple-800 text-white px-5 py-3 hover:bg-white hover:text-purple-900 transitions font-bold"><a href="/students/profile"> <i class="fas fa-user"></i> Profile</a></li>
-                    <li class="my-2 bg-purple-800 text-white px-5 py-3 hover:bg-white hover:text-purple-900 transitions font-bold"><a href="/students/profile"> <i class="fas fa-edit"></i> Edit</a></li>
-                    <li class="my-2 bg-purple-800 text-white px-5 py-3 hover:bg-white hover:text-purple-900 transitions font-bold"><a href=""> <i class="fas fa-lock"></i> Change Password</a></li>
-                    <li class="my-2 bg-purple-800 text-white px-5 py-3 hover:bg-white hover:text-purple-900 transitions font-bold"><a href=""> <i class="fas fa-camera"></i> Profile Photo</a></li>
+                    <li class="my-2 bg-purple-800 text-white px-5 py-3 hover:bg-white hover:text-purple-900 transitions font-bold"><a href="/students/edit"> <i class="fas fa-edit"></i> Edit</a></li>
+                    <li class="my-2 bg-purple-800 text-white px-5 py-3 hover:bg-white hover:text-purple-900 transitions font-bold"><a href="/students/password"> <i class="fas fa-lock"></i> Change Password</a></li>
+                    <li class="my-2 bg-purple-800 text-white px-5 py-3 hover:bg-white hover:text-purple-900 transitions font-bold"><a href="/students/profilephoto/"> <i class="fas fa-camera"></i> Profile Photo</a></li>
                     <li class="my-2 bg-purple-800 text-white px-5 py-3 hover:bg-white hover:text-purple-900 transitions font-bold"><a href="/logout"> <i class="fa-solid fa-right-from-bracket"></i> Log Out</a></li>
                    
                 </ul>
@@ -25,31 +25,41 @@
                             <div class="bg-purple-900 w-full h-12 border-b-2 border-b-white text-center ">
                                 <h1 class="text-white font-bold pt-3">You can Change profile</h1>
                             </div>
-                <form action="/students/edit/<%= user._id %> " method="POST"  class="flex flex-col w-full bg-purple-500 h-full  " >
+                <form action="/students/edit/<%= user._id %> " method="POST"  class="flex flex-col w-full bg-purple-500   " >
                    <div class="bg-red-200 text-center">
                     <% if (message) { %>
                         <p class="w-full h-8 text-purple-900"><%= message %> </p>
                     <% } %>
                    </div>
-                    <div class="my-1 text-center flex w-full ">
-                        <input type="text" name="first_name" class=" w-6/12  bg-white h-8 my-1 hover:border-2 hover:border-amber-300  focus:bg-amber-300 placeholder-pink-900 font-bold transition-all hover:scale-110  pl-5 focus:border-none focus:outline-none"
+                    <div class=" text-center flex flex-col w-full ">
+                        <label class=" w-full  bg-green-200 font-bold h-8 border-b-4 border-b-red-300" for="">First Name</label>
+                        <input type="text" name="first_name" class=" w-full bg-white h-8  hover:border-2 hover:border-amber-300  focus:bg-amber-300 placeholder-pink-900 font-bold transition-all hover:scale-105  pl-5 focus:border-none focus:outline-none"
                             placeholder="Fist Name" value=" <%= user.first_name %>  ">
-                        <input type="text" name="last_name" class="w-6/12 h-8 my-1 transition-all hover:border-2 hover:border-amber-300  focus:bg-amber-300 hover:scale-110 bg-white placeholder-pink-900 font-bold  pl-5 focus:border-none focus:outline-none"
+                      <label class=" w-full  bg-green-200 font-bold h-8 border-b-4 border-b-red-300" for="">Last Name</label>
+                        <input type="text" name="last_name" class="w-full h-8  transition-all hover:border-2 hover:border-amber-300  focus:bg-amber-300 hover:scale-105 bg-white placeholder-pink-900 font-bold  pl-5 focus:border-none focus:outline-none"
                             placeholder="Last Name" value=" <%= user.last_name %>  ">
                     </div>
                     
                     
-                    <div class="my-1 text-center w-full">
-                        <input type="text" name="age" class="w-full transition-all hover:border-2 hover:border-amber-300  focus:bg-amber-300 hover:scale-110 bg-white h-8 my-1 placeholder-pink-900 font-bold  pl-5 focus:border-none focus:outline-none" placeholder="Age" id="" value=" <%= user.age %>  ">
+                    <div class=" text-center w-full">
+                        <label class=" w-full  bg-green-200 font-bold h-8 border-b-4 border-b-red-300 flex flex-col" for="">Age</label>
+                        <input type="text" name="age" class="w-full transition-all hover:border-2 hover:border-amber-300  focus:bg-amber-300 hover:scale-105 bg-white h-8  placeholder-pink-900 font-bold  pl-5 focus:border-none focus:outline-none" placeholder="Age" id="" value=" <%= user.age %>  ">
                     </div>
-                    <div class="my-1 text-center w-full">
-                        <input type="text" name="cell" class="w-full transition-all hover:border-2 hover:border-amber-300  focus:bg-amber-300 hover:scale-110 placeholder-pink-900 font-bold bg-white h-8 my-1  pl-5 focus:border-none focus:outline-none" placeholder="Mobile Number" id="" value=" <%= user.cell %>  ">
+                    <div class=" text-center w-full">
+                        <label class=" w-full  bg-green-200 font-bold h-8 border-b-4 border-b-red-300 flex flex-col" for="">Username</label>
+                        <input type="text" name="username" class="w-full transition-all hover:border-2 hover:border-amber-300  focus:bg-amber-300 hover:scale-105 bg-white h-8  placeholder-pink-900 font-bold  pl-5 focus:border-none focus:outline-none" placeholder="Username" id="" value=" <%= user.username %>  ">
                     </div>
-                    <div class="my-1 text-center w-full">
-                        <input type="email" name="email" class="w-full transition-all hover:border-2 hover:border-amber-300   focus:bg-amber-300 hover:scale-110 placeholder-pink-900 font-bold bg-white h-8 my-1 pl-5 focus:border-none focus:outline-none" placeholder="Email" value=" <%= user.email %>  ">
+                    <div class=" text-center w-full">
+                        <label class=" w-full  bg-green-200 font-bold h-8 border-b-4 border-b-red-300 flex flex-col" for="">Mobile Number</label>
+                        <input type="text" name="cell" class="w-full transition-all hover:border-2 hover:border-amber-300  focus:bg-amber-300 hover:scale-105 placeholder-pink-900 font-bold bg-white h-8   pl-5 focus:border-none focus:outline-none" placeholder="Mobile Number" id="" value=" <%= user.cell %>  ">
                     </div>
-                    <div class="my-1 text-center w-full">
-                    <select class="w-full h-8 my-1 text-pink-800 font-bold hover:border-2 hover:border-amber-300   focus:bg-amber-300 pr-5 transition-all hover:scale-110  bg-white   pl-5" name="location" id="">
+                    <div class=" text-center w-full">
+                        <label class=" w-full  bg-green-200 font-bold h-8 border-b-4 border-b-red-300 flex flex-col" for="">Email</label>
+                        <input type="email" name="email" class="w-full transition-all hover:border-2 hover:border-amber-300   focus:bg-amber-300 hover:scale-105 placeholder-pink-900 font-bold bg-white h-8  pl-5 focus:border-none focus:outline-none" placeholder="Email" value=" <%= user.email %>  ">
+                    </div>
+                    <div class=" text-center w-full">
+                        <label class=" w-full  bg-green-200 font-bold h-8 border-b-4 border-b-red-300 flex flex-col" for="">Location</label>
+                    <select class="w-full h-8  text-pink-800 font-bold hover:border-2 hover:border-amber-300   focus:bg-amber-300 pr-5 transition-all hover:scale-105  bg-white   pl-5" name="location" id="">
                         <option value="Mirpur">Location</option>
                         <option <%= user.location == 'Mirpur' ? 'selected' : ''%> value="Mirpur">Mirpur</option>
                         <option <%= user.location == 'Badda' ? 'selected' : ''%> value="Badda">Badda</option>
@@ -57,17 +67,18 @@
                         <option <%= user.location == 'Motijil' ? 'selected' : ''%> value="Motijil">Motijil</option>
                     </select>
                     </div>
-                    <div class="my-1 text-center w-full">
-                    <select class="w-full h-8 my-1 font-bold transition-all hover:border-2 hover:border-amber-300  focus:bg-amber-300 hover:scale-110 text-pink-900
+                    <div class=" text-center w-full">
+                        <label class=" w-full  bg-green-200 font-bold h-8 border-b-4 border-b-red-300 flex flex-col" for="">Gender</label>
+                    <select class="w-full h-8  font-bold transition-all hover:border-2 hover:border-amber-300  focus:bg-amber-300 hover:scale-105 text-pink-900
                         bg-white  pl-5 pr-5" name="gender" id="">
                         <option class="  " value="Male">Gender</option>
-                        <option <%= user.gender == 'Male' ? 'selected' : ''%> value="Female">Male</option>
+                        <option <%= user.gender == 'Male' ? 'selected' : ''%> value="Male">Male</option>
                         <option <%= user.gender == 'Female' ? 'selected' : ''%> value="Female">Female</option>
                     </select>
                     </div>
                     
                    
-                    <button class="w-full h-8   bg-pink-700 transition-all  hover:border-2 hover:border-amber-300 hover:scale-110 hover:shadow-3xl hover:shadow-white  text-lg text-white font-bold hover:text-pink-600  hover:bg-white mb-0"
+                    <button class="w-full h-8   bg-pink-700 transition-all  hover:border-2 hover:border-amber-300 hover:scale-105 hover:shadow-3xl hover:shadow-white  text-lg text-white font-bold hover:text-pink-600  hover:bg-white mb-0"
                     type="submit"  href="">Save</button>
                     
                 </form>    

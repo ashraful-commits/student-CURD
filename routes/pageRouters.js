@@ -13,6 +13,10 @@ const {
   studentProfile,
   studentProfileEdit,
   editstudentProfile,
+  changePassword,
+  updatePassword,
+  profilePhoto,
+  changeProfilePhoto,
 } = require('../controllers/pageControllers');
 const loginUserRedicet = require('../middlewares/userLoginRedirect');
 const authMiddlewares = require('../middlewares/authMiddlewares');
@@ -24,8 +28,16 @@ router.get('/', loginUserRedicet, homePage);
 router.get('/class', loginUserRedicet, classPage);
 router.get('/contact', loginUserRedicet, contactPage);
 router.get('/students', loginUserRedicet, studentsPage);
-router.get('/students/profile', studentProfile);
+router.get('/students/profile', loginUserRedicet, studentProfile);
 router.get('/students/edit', studentProfileEdit);
+router.get('/students/password', changePassword);
+router.get('/students/profilephoto/', profilePhoto);
+router.post(
+  '/students/profilephoto/:id',
+  photoMulter,
+  changeProfilePhoto
+);
+router.post('/students/password/:id', updatePassword);
 router.post('/students/edit/:id', editstudentProfile);
 router.get('/registration', authMiddlewares, registrationPage);
 router.post('/registration', photoMulter, registraionFormSubmit);

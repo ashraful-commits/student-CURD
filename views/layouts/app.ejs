@@ -34,6 +34,15 @@
 </div>
 <body>
     <%- body  %> 
-   
+   <script>
+    const update_photo = document.getElementById('update_photo')
+    const img = document.getElementById('img')
+    update_photo.onchange =(e)=>{
+        const imgval = e.target.value
+        
+      img.setAttribute ('src',imgval[0])
+      
+    }
+   </script>
 </body>
 </html>
