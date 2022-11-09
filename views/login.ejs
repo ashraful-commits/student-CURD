@@ -1,0 +1,36 @@
+<div class="container  p-10 m-auto w-full h-full  bg-[url('https://c8.alamy.com/zooms/9/dadb3fb428cc4284ab611b7adf4d492e/2bm85k6.jpg')] bg-cover ">
+    
+    <div class="row m-auto w-8/12 overflow-hidden h-96 mt-10 bg-[url('https://i.pinimg.com/564x/f0/d4/ab/f0d4ab613a82db394c4ac2d26cbb9a0f--background-designs.jpg')]  to-pink-500  flex relative justify-center  shadow-2xl rounded-xl ">
+        <!-- <div class=" flex absolute w-12 justify-between top-10 bg-gradient-to-r from-pink-900  to-pink-300 rounded-full">
+            <span class="w-4 h-4 bg-white rounded-full"></span>
+            <span class= "w-4 h-4 bg-white rounded-full"></span>
+        </div>
+        <div class=" flex absolute w-12 justify-between bottom-10 bg-gradient-to-r from-pink-900  to-pink-300 rounded-full">
+            <span class="w-4 h-4 bg-white rounded-full"></span>
+            <span class= "w-4 h-4 bg-white rounded-full"></span>
+        </div> -->
+        <div  class="part_one  bg-cover w-6/12 h-full flex justify-center items-center    flex-col py-10">
+            <h1 class="mb-5 font-bold text-lg text-purple-600">LOGIN FORM</h1>
+            <img class="w-72 h-72 rounded-3xl hover:border-4 hover:border-purple-900 hover:scale-110 transition-all hover:skew-y-2"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuJNg1a06mCPyExlFCUOvGw-vjswOe8-shlpmyGV0G2WD8JAI_HVC_U4Fe8GGsdAIo_-Y&usqp=CAU"
+                alt="">
+        </div>
+        <div class="part_two  bg-cover w-6/12 h-full text-center  py-10 overflow-hidden  ">
+
+            <form action="/login" method="post" class="flex flex-col w-full h-full justify-center items-center">
+                <% if (message) { %>
+                    <p class="w-72 h-8  block bg-purple-900 text-white"><%= message %> </p>
+                <% } %>
+                <div class="my-2">
+                   
+                    <input type="text" name="email" class=" hover:border-4 hover:border-purple-900 placeholder-pink-900 font-bold transition-all  w-72 h-8 hover:w-80 hover:h-10 my-1 focus:bg-amber-500  pl-5 focus:border-none focus:outline-none"
+                        placeholder="Username">
+                    <input type="password" name="password" class=" hover:border-4 hover:border-purple-900 placeholder-pink-900 font-bold  transition-all   w-72 h-8 hover:w-80 hover:h-10 my-1  focus:bg-amber-500  pl-5 focus:border-none focus:outline-none"
+                        placeholder="Password">
+                </div>
+                <button class=" font-bold hover:border-4 hover:border-purple-900 bg-purple-900 pt-1 text-lg text-white transition-all   w-72 h-8 hover:w-80 hover:h-10 hover:text-purple-900 hover:bg-white"
+                    type="submit" href="">Login</button>
+            </form>
+        </div>
+    </div>
+</div>

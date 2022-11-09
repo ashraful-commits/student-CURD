@@ -1,0 +1,76 @@
+<div class="container bg-purple-500 p-10 m-auto w-full h-full  bg-[url('https://c8.alamy.com/zooms/9/dadb3fb428cc4284ab611b7adf4d492e/2bm85k6.jpg')] bg-cover  mix-blend-difference">
+    
+    <div class="row m-auto w-8/12 overflow-hidden h-auto mt-2  flex relative justify-center  shadow-2xl rounded-xl bg-[url('https://www.scottishrenewables.com/assets/000/001/937/PLANNING-CONFERENCE-WEB-BANNER-3021X858PX_listing.jpg?1642081290')] bg-cover">
+        <!-- <div class=" flex absolute w-12 justify-between top-10 bg-purple-900 rounded-full">
+            <span class="w-4 h-4 bg-white rounded-full"></span>
+            <span class= "w-4 h-4 bg-white rounded-full"></span>
+        </div>
+        <div class=" flex absolute w-12 justify-between bottom-10 bg-purple-900 rounded-full">
+            <span class="w-4 h-4 bg-white rounded-full"></span>
+            <span class= "w-4 h-4 bg-white rounded-full"></span>
+        </div> -->
+        <div class="part_one  w-6/12 h-auto flex flex-col justify-center items-center px-5 text-white  ">
+            <h1 class="pb-3">REGISTRATION FORM</h1>
+            <img class="w-72 hover:scale-110 hover:skew-x-2 transition-all hover:border-4 hover:border-amber-300 h-72 rounded-3xl"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuJNg1a06mCPyExlFCUOvGw-vjswOe8-shlpmyGV0G2WD8JAI_HVC_U4Fe8GGsdAIo_-Y&usqp=CAU"
+                alt="">
+        </div>
+        <div class="part_two   w-6/12 h-auto text-center  py-5 px-5">
+           
+            <form action="/registration" method="POST" enctype="multipart/form-data" class="flex flex-col w-full h-full justify-center items-center" >
+               
+                <div class="my-1 text-center ">
+                <% if (message) { %>
+                    <p class="w-80 h-8  bg-purple-900 text-white"><%= message %> </p>
+                <% } %>
+                    <input type="text" name="first_name" class=" w-44 bg-white h-8 my-1 hover:border-2 hover:border-amber-300  focus:bg-amber-300 placeholder-pink-900 font-bold transition-all hover:scale-110  pl-5 focus:border-none focus:outline-none"
+                        placeholder="Fist Name">
+                    <input type="text" name="last_name" class="w-36 h-8 my-1 transition-all hover:border-2 hover:border-amber-300  focus:bg-amber-300 hover:scale-110 bg-white placeholder-pink-900 font-bold  pl-5 focus:border-none focus:outline-none"
+                        placeholder="Last Name">
+                </div>
+                
+                
+                <div class="my-1 text-center">
+                    <input type="text" name="age" class="w-80 transition-all hover:border-2 hover:border-amber-300  focus:bg-amber-300 hover:scale-110 bg-white h-8 my-1 placeholder-pink-900 font-bold  pl-5 focus:border-none focus:outline-none" placeholder="Age" id="">
+                </div>
+                <div class="my-1 text-center">
+                    <input type="text" name="cell" class="w-80 transition-all hover:border-2 hover:border-amber-300  focus:bg-amber-300 hover:scale-110 placeholder-pink-900 font-bold bg-white h-8 my-1  pl-5 focus:border-none focus:outline-none" placeholder="Mobile Number" id="">
+                </div>
+                <div class="my-1 text-center">
+                    <input type="email" name="email" class="w-80 transition-all hover:border-2 hover:border-amber-300   focus:bg-amber-300 hover:scale-110 placeholder-pink-900 font-bold bg-white h-8 my-1 pl-5 focus:border-none focus:outline-none" placeholder="Email">
+                </div>
+                <div class="my-1 text-center">
+                   <select class="w-80 h-8 my-1 text-pink-800 font-bold hover:border-2 hover:border-amber-300   focus:bg-amber-300 pr-5 transition-all hover:scale-110  bg-white   pl-5" name="location" id="">
+                    <option value="Mirpur">Location</option>
+                    <option value="Mirpur">Mirpur</option>
+                    <option value="Badda">Badda</option>
+                    <option value="Uttara">Uttara</option>
+                    <option value="Motijil">Motijil</option>
+                   </select>
+                </div>
+                <div class="my-1 text-center">
+                   <select class="w-80 h-8 my-1 font-bold transition-all hover:border-2 hover:border-amber-300  focus:bg-amber-300 hover:scale-110 text-pink-900
+                    bg-white  pl-5 pr-5" name="gender" id="">
+                    <option class="  " value="Male">Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                   </select>
+                </div>
+                <div class="my-1 text-center ">
+                    <input type="file" name="photo"  multiple class="block  hover:border-2 hover:border-amber-300 border-none text-pink-800 w-80 h-8 transition-all hover:scale-110 bg-white font-bold "    id="">
+                </div>
+                <div class="my-1 text-center">
+                   
+                    <input type="text" name="username" class=" transition-all  hover:border-2 hover:border-amber-300 focus:bg-amber-300 hover:scale-110 w-44 h-8 my-1 bg-white placeholder-pink-900 font-bold  pl-5 focus:border-none focus:outline-none"
+                        placeholder="Username">
+                    <input type="password" name="password" class="w-36 h-8 my-1   hover:border-2 hover:border-amber-300 focus:bg-amber-300 transition-all hover:scale-110 bg-white placeholder-pink-900 font-bold  pl-5 focus:border-none focus:outline-none"
+                        placeholder="Password">
+                </div>
+                <button class="w-80 h-8   bg-pink-700 transition-all  hover:border-2 hover:border-amber-300 hover:scale-110 hover:shadow-3xl hover:shadow-white  text-lg text-white font-bold hover:text-pink-600 hover:bg-white"
+                  type="submit"  href="">Submit</button>
+                
+            </form>
+            
+        </div>
+    </div>
+</div>
